@@ -20,7 +20,7 @@ test("form shows success message on submit with form details", () => {
     const state = screen.getByLabelText('State:')
     const zip = screen.getByLabelText('Zip:')
     const submitButton = screen.getByRole('button')
-    const successDiv = screen.getByTestId('successMessage')
+    
 
     userEvent.type(fName, 'Nicholas')
     userEvent.type(lName, 'Samples')
@@ -29,6 +29,7 @@ test("form shows success message on submit with form details", () => {
     userEvent.type(state, 'PA')
     userEvent.type(zip, '12345')
     userEvent.click(submitButton)
-
+    
+    const successDiv = screen.getByTestId('successMessage')
     expect(successDiv).toBeInTheDocument()
 });
